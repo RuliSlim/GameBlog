@@ -8,7 +8,7 @@ const Home = () => {
       <Grid container >
         <Grid item xs={12}>
           <Card />
-        </Grid>
+        </Grid>a
       </Grid>
     </>
   );

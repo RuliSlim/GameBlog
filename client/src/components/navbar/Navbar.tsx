@@ -1,24 +1,19 @@
-import React, { MouseEvent, useState } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import useStyles from '../../theme/styles';
-import lightTheme from '../../theme/theme';
+import React from 'react';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  InputBase
+} from '@material-ui/core';
+import { Search, Menu } from '@material-ui/icons';
 
-export default function SearchAppBar () {
-  const [ style, setStyle ] = useState(useStyles());
-  const classes = style;
-  const clickEvent = (event : MouseEvent) => {
-    console.log(lightTheme.palette.type, 'ini theme');
-    lightTheme.palette.type === 'light' ? lightTheme.palette.type = 'dark' : lightTheme.palette.type = 'light';
-    console.log(lightTheme.palette.type, 'ini theme');
-    console.log(lightTheme, 'ini theme');
-    console.log(style);
-  };
+// custom classes
+import useStyles from '../../theme/styles';
+
+export default function SearchAppBar (props:any) {
+  const classes = useStyles();
+  const { toggleModed } = props;
   
   return (
     <React.Fragment>
@@ -29,16 +24,16 @@ export default function SearchAppBar () {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-            onClick={clickEvent}
+            onClick={toggleModed}
           >
-            <MenuIcon />
+            <Menu />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             Material-UI
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
-              <SearchIcon />
+              <Search />
             </div>
             <InputBase
               placeholder="Search…"
@@ -54,3 +49,4 @@ export default function SearchAppBar () {
     </React.Fragment>
   );
 }
+

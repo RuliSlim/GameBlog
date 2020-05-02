@@ -1,7 +1,6 @@
 import { makeStyles, createStyles, Theme, fade } from '@material-ui/core';
-import lightTheme from './theme';
 
-const checkModePrimary = ((theme: Theme) => {return lightTheme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light;});
+const checkModePrimary = ((theme: Theme) => {return theme.palette.type === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light;});
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
